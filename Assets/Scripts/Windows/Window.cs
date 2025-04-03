@@ -9,9 +9,9 @@ namespace naa.AssemblingWords.Windows
         
         [SerializeField] private WindowView _windowView;
 
-        public abstract void Open();
+        public void Open() => SetActive(true);
 
-        public abstract void Close();
+        public void Close() => SetActive(false);
 
         protected void SetActive(bool isActive)
         {

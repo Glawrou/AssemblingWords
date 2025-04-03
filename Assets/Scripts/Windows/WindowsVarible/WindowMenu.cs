@@ -9,26 +9,16 @@ namespace naa.AssemblingWords.Windows
         public event Action OnClickPlay;
         public event Action OnClickSetting;
 
-        public const string WindowMenuName = "Menu"; 
+        public const string WindowName = "Menu"; 
 
         [SerializeField] private Button _buttonPlay;
         [SerializeField] private Button _buttonSetting;
 
         private void Awake()
         {
-            Name = WindowMenuName;
+            Name = WindowName;
             _buttonPlay.onClick.AddListener(ClickButtonPlayHandler);
             _buttonPlay.onClick.AddListener(ClickButtonSettingHandler);
-        }
-
-        public override void Open()
-        {
-            SetActive(true);
-        }
-
-        public override void Close()
-        {
-            SetActive(false);
         }
 
         public void ClickButtonPlayHandler()
