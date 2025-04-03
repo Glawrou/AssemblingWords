@@ -9,16 +9,13 @@ namespace naa.AssemblingWords.Windows
         public event Action OnClickPlay;
         public event Action OnClickSetting;
 
-        public const string WindowName = "Menu"; 
-
         [SerializeField] private Button _buttonPlay;
         [SerializeField] private Button _buttonSetting;
 
         private void Awake()
         {
-            Name = WindowName;
             _buttonPlay.onClick.AddListener(ClickButtonPlayHandler);
-            _buttonPlay.onClick.AddListener(ClickButtonSettingHandler);
+            _buttonSetting.onClick.AddListener(ClickButtonSettingHandler);
         }
 
         public void ClickButtonPlayHandler()
@@ -34,7 +31,7 @@ namespace naa.AssemblingWords.Windows
         private void OnDestroy()
         {
             _buttonPlay.onClick.RemoveListener(ClickButtonPlayHandler);
-            _buttonPlay.onClick.RemoveListener(ClickButtonSettingHandler);
+            _buttonSetting.onClick.RemoveListener(ClickButtonSettingHandler);
         }
     }
 }

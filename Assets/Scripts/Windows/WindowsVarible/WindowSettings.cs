@@ -9,14 +9,11 @@ namespace naa.AssemblingWords.Windows
         public event Action<bool> OnToggleSoundChanged;
         public event Action OnClickBack;
 
-        public const string WindowName = "Settings";
-
         [SerializeField] private Toggle _toggleSound;
         [SerializeField] private Button _buttonBack;
 
         private void Awake()
         {
-            Name = WindowName;
             _toggleSound.onValueChanged.AddListener(ToggleValueChangeHandler);
             _buttonBack.onClick.AddListener(ButtonClickHandler);
         }

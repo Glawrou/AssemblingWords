@@ -11,8 +11,6 @@ namespace naa.AssemblingWords.Windows
         public event Action OnClickMainMenu;
         public event Action OnClickNextLevel;
 
-        public const string WindowName = "Win";
-
         [SerializeField] private Button _buttonMainMenu;
         [SerializeField] private Button _buttonNextLevel;
         [SerializeField] private TextMeshProUGUI _textResult;

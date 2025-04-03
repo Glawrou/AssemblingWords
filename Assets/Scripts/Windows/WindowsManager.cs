@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,40 +7,85 @@ namespace naa.AssemblingWords.Windows
 {
     public class WindowsManager : MonoBehaviour
     {
-        [SerializeField] private Window[] _windows;
+        public event Action OnClickPlay;
+
         [SerializeField] private Image _background;
 
-        private Window _currentWindow;
+        [Header("Windows")]
+        [SerializeField] private WindowMenu _windowMenu;
+        [SerializeField] private WindowSettings _windowSettings;
+        [SerializeField] private WindowWin _windowWin;
+
+        private Window[] _windows;
 
         private void Awake()
         {
-            _windows.ToList().ForEach(window => window.Close());
-        }
-
-        public void SetActiveBackground(bool isActive)
-        {
-            _background.gameObject.SetActive(isActive);
-        }
-
-        public void Open(string name)
-        {
-            if (!_windows.Any(w => w.Name.Equals(name)))
+            AddListeners();
+            _windows = new Window[]
             {
-                Debug.LogWarning("naa >> AssemblingWords >> Windows >> WindowsManager >> Open() >> The window was not found");
-                return;
-            }
+                _windowMenu,
+                _windowSettings,
+                _windowWin
+            };
+        }
 
+        private void Start()
+        {
             CloseAll();
-            SetActiveBackground(true);
-            _currentWindow = _windows.FirstOrDefault(w => w.Name.Equals(name));
-            _currentWindow.Open();
+            Open(_windowMenu);
         }
 
         public void CloseAll()
         {
             SetActiveBackground(false);
             _windows.ToList().ForEach(w => w.Close());
-            _currentWindow = null;
+        }
+
+        private void Open(Window window)
+        {
+            CloseAll();
+            SetActiveBackground(true);
+            window.Open();
+        }
+
+        private void OpenWindowSettings() => Open(_windowSettings);
+
+        private void OpenWindowWin() => Open(_windowWin);
+
+        private void OpenWindowMenu() => Open(_windowMenu);
+
+        private void ClickPlayHandler()
+        {
+            CloseAll();
+            OnClickPlay?.Invoke();
+        }
+
+        private void SetActiveBackground(bool isActive)
+        {
+            _background.gameObject.SetActive(isActive);
+        }
+
+        private void AddListeners()
+        {
+            _windowMenu.OnClickSetting += OpenWindowSettings;
+            _windowWin.OnClickMainMenu += OpenWindowMenu;
+            _windowSettings.OnClickBack += OpenWindowMenu;
+            _windowMenu.OnClickPlay += ClickPlayHandler;
+            _windowWin.OnClickNextLevel += ClickPlayHandler;
+        }
+
+        private void RemoveListeners()
+        {
+            _windowMenu.OnClickSetting -= OpenWindowSettings;
+            _windowWin.OnClickMainMenu -= OpenWindowMenu;
+            _windowSettings.OnClickBack -= OpenWindowMenu;
+            _windowMenu.OnClickPlay -= ClickPlayHandler;
+            _windowWin.OnClickNextLevel -= ClickPlayHandler;
+        }
+
+        private void OnDestroy()
+        {
+            RemoveListeners();
         }
     }
 }
