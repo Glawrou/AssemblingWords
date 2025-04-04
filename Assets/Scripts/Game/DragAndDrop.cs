@@ -7,7 +7,13 @@ namespace naa.AssemblingWords.Game
 {
     public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
+        public Transform Center;
+
+        [SerializeField] private RectTransform _rectTransform;
+
         [Inject] private Camera _camera;
+
+        private float RectToWordFactor = 0.005f;
 
         private Vector2 _startOffset;
 
@@ -24,7 +30,7 @@ namespace naa.AssemblingWords.Game
                 return;
             }
 
-            transform.position = nearCell.transform.position;
+            transform.position = nearCell.transform.position + Center.position - transform.position;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -41,9 +47,10 @@ namespace naa.AssemblingWords.Game
 
         private CellLetter FindNearCells()
         {
-            var nearestCell = Physics2D.OverlapBoxAll(transform.position, Vector2.one, 0)
+            var xOffset = Vector3.Distance(Center.position, transform.position) * 2f;
+            var nearestCell = Physics2D.OverlapBoxAll(_rectTransform.transform.position, _rectTransform.rect.size * RectToWordFactor, 0)
                 .Where(c => c.CompareTag(CellLetter.Tag))
-                .OrderBy(c => (c.transform.position - transform.position).sqrMagnitude)
+                .OrderBy(c => Vector3.Distance(c.transform.position, Center.position + Vector3.right * xOffset))
                 .FirstOrDefault();
 
             if (nearestCell is null)
@@ -52,7 +59,7 @@ namespace naa.AssemblingWords.Game
             }
 
             return nearestCell.GetComponent<CellLetter>();
-        }    
+        }
 
         private Vector2 GetMyScreenPosition()
         {
