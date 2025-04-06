@@ -2,11 +2,15 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
+using System;
 
 namespace naa.AssemblingWords.Game
 {
     public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
+        public event Action<CellLetter> OnPutInCell;
+        public event Action OnPickUp;
+
         public Transform Center;
 
         [SerializeField] private RectTransform _rectTransform;
@@ -19,6 +23,7 @@ namespace naa.AssemblingWords.Game
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            OnPickUp?.Invoke();
             _startOffset = GetMyScreenPosition() - eventData.position;
         }
 
@@ -31,6 +36,7 @@ namespace naa.AssemblingWords.Game
             }
 
             transform.position = nearCell.transform.position + Center.position - transform.position;
+            OnPutInCell?.Invoke(nearCell);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -38,7 +44,7 @@ namespace naa.AssemblingWords.Game
             SetPosition(eventData.position);
         }
 
-        private void SetPosition(Vector2 screenPoint)
+        public void SetPosition(Vector2 screenPoint)
         {
             var worldPosition = _camera.ScreenToWorldPoint(screenPoint + _startOffset);
             worldPosition.z = 0;
