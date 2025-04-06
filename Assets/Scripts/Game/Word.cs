@@ -90,7 +90,7 @@ namespace naa.AssemblingWords.Game
                 }
             }
 
-            return word.ToString().ToUpper();
+            return word.ToString();
         }
 
         private bool CheckRange(int startNumber1, int endNumber1, int startNumber2, int endNumber2)

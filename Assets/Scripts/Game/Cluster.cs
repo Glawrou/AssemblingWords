@@ -5,7 +5,7 @@ namespace naa.AssemblingWords.Game
 {
     public class Cluster : MonoBehaviour
     {
-        public string LetterText;
+        public string LetterText { get; private set; }
 
         [SerializeField] private Letter _letterPrefab;
         [SerializeField] private DragAndDrop _dragAndDrop;
@@ -15,6 +15,8 @@ namespace naa.AssemblingWords.Game
 
         private List<Letter> _listLetters;
         private CellLetter _currentCellLetter;
+        private Transform _listTransform;
+        private Transform _fieldTransform;
 
         private void Awake()
         {
@@ -22,31 +24,35 @@ namespace naa.AssemblingWords.Game
             _dragAndDrop.OnPickUp += PickUpHandler;
         }
 
-        private void Start()
-        {
-            Init(LetterText);
-        }
-
-        public void Init(string text)
+        public void Init(string text, Camera camera, Transform listTransform, Transform fieldTransform)
         {
             _listLetters = new List<Letter>();
             SetText(text);
-            _dragAndDrop.Center = _listLetters[0].transform;
+            _dragAndDrop.Init(camera, _listLetters[0].transform);
+            _listTransform = listTransform;
+            _fieldTransform = fieldTransform;
         }
 
         public void Respawn()
         {
-            _dragAndDrop.SetPosition(Vector3.one * 100f);
+            transform.SetParent(_listTransform);
         }
 
         private void PutInCellHandler(CellLetter cellLetter)
         {
+            if (!cellLetter)
+            {
+                Respawn();
+                return;
+            }
+
             _currentCellLetter = cellLetter;
             cellLetter.PutCluster(this);
         }
 
         private void PickUpHandler()
         {
+            transform.SetParent(_fieldTransform);
             if (!_currentCellLetter)
             {
                 return;
@@ -58,6 +64,7 @@ namespace naa.AssemblingWords.Game
 
         private void SetText(string text)
         {
+            LetterText = text;
             var cellCount = text.Length;
             for (int i = 0; i < cellCount; i++)
             {

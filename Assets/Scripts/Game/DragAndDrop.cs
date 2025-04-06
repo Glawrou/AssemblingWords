@@ -1,8 +1,7 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Zenject;
-using System;
 
 namespace naa.AssemblingWords.Game
 {
@@ -11,15 +10,19 @@ namespace naa.AssemblingWords.Game
         public event Action<CellLetter> OnPutInCell;
         public event Action OnPickUp;
 
-        public Transform Center;
-
         [SerializeField] private RectTransform _rectTransform;
 
-        [Inject] private Camera _camera;
+        private const float RectToWordFactor = 0.005f;
 
-        private float RectToWordFactor = 0.005f;
-
+        private Camera _camera;
+        private Transform _center;
         private Vector2 _startOffset;
+
+        public void Init(Camera camera, Transform center)
+        {
+            _camera = camera;
+            _center = center;
+        }
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -32,10 +35,11 @@ namespace naa.AssemblingWords.Game
             var nearCell = FindNearCells();
             if (nearCell is null)
             {
+                OnPutInCell?.Invoke(null);
                 return;
             }
 
-            transform.position = nearCell.transform.position + Center.position - transform.position;
+            transform.position = nearCell.transform.position + _center.position - transform.position;
             OnPutInCell?.Invoke(nearCell);
         }
 
@@ -53,10 +57,10 @@ namespace naa.AssemblingWords.Game
 
         private CellLetter FindNearCells()
         {
-            var xOffset = Vector3.Distance(Center.position, transform.position) * 2f;
+            var xOffset = Vector3.Distance(_center.position, transform.position) * 2f;
             var nearestCell = Physics2D.OverlapBoxAll(_rectTransform.transform.position, _rectTransform.rect.size * RectToWordFactor, 0)
                 .Where(c => c.CompareTag(CellLetter.Tag))
-                .OrderBy(c => Vector3.Distance(c.transform.position, Center.position + Vector3.right * xOffset))
+                .OrderBy(c => Vector3.Distance(c.transform.position, _center.position + Vector3.right * xOffset))
                 .FirstOrDefault();
 
             if (nearestCell is null)
