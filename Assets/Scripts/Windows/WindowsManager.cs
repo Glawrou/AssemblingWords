@@ -21,12 +21,7 @@ namespace naa.AssemblingWords.Windows
         private void Awake()
         {
             AddListeners();
-            _windows = new Window[]
-            {
-                _windowMenu,
-                _windowSettings,
-                _windowWin
-            };
+            
         }
 
         private void Start()
@@ -38,7 +33,7 @@ namespace naa.AssemblingWords.Windows
         public void CloseAll()
         {
             SetActiveBackground(false);
-            _windows.ToList().ForEach(w => w.Close());
+            GetWindows().ToList().ForEach(w => w.Close());
         }
 
         private void Open(Window window)
@@ -48,11 +43,15 @@ namespace naa.AssemblingWords.Windows
             window.Open();
         }
 
-        private void OpenWindowSettings() => Open(_windowSettings);
+        public void OpenWindowSettings() => Open(_windowSettings);
 
-        private void OpenWindowWin() => Open(_windowWin);
+        public void OpenWindowWin(string[] words)
+        {
+            Open(_windowWin);
+            _windowWin.FillResult(words);
+        }
 
-        private void OpenWindowMenu() => Open(_windowMenu);
+        public void OpenWindowMenu() => Open(_windowMenu);
 
         private void ClickPlayHandler()
         {
@@ -63,6 +62,21 @@ namespace naa.AssemblingWords.Windows
         private void SetActiveBackground(bool isActive)
         {
             _background.gameObject.SetActive(isActive);
+        }
+
+        private Window[] GetWindows()
+        {
+            if (_windows == null)
+            {
+                _windows = new Window[]
+                {
+                    _windowMenu,
+                    _windowSettings,
+                    _windowWin
+                };
+            }
+
+            return _windows;
         }
 
         private void AddListeners()

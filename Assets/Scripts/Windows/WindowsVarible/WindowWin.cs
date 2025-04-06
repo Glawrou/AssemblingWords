@@ -24,7 +24,7 @@ namespace naa.AssemblingWords.Windows
         public void FillResult(string[] words)
         {
             _textResult.text = string.Empty;
-            words.ToList().ForEach(w => _textResult.text += w + '\n');
+            words.ToList().ForEach(w => _textResult.text += w.ToUpper() + '\n');
         }
 
         private void ClickMainMenuHandler()

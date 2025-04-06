@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,8 @@ namespace naa.AssemblingWords.Game
 {
     public class Word : MonoBehaviour
     {
+        public event Action OnPutCluster;
+
         [SerializeField] private CellLetter[] _cellLetters;
 
         private Dictionary<int, Cluster> _content = new Dictionary<int, Cluster>();
@@ -30,6 +33,7 @@ namespace naa.AssemblingWords.Game
         private void PutClusterHandler(int cellNumber, Cluster cluster)
         {
             TryPutCluster(cellNumber, cluster);
+            OnPutCluster?.Invoke();
         }
 
         private void OutClusterHandler(int cellNumber, Cluster cluster)
