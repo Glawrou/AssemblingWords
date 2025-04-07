@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"256e18de-3130-4cfb-a77f-d0734c8b0d28\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"levels\",\r\n      \"type\": \"json\",\r\n     
+    \"schemaId\": null,\r\n      \"value\": {\r\n        \"Levels\": [\r\n         
+    {\r\n            \"Field\": {\r\n              \"Words\": [\r\n               
+    \"\u043A\u0430\u0448\u0442\u0430\u043D\",\r\n                \"\u0444\u0438\u043B\u044C\u0442\u0440\",\r\n               
+    \"\u0431\u0430\u043D\u043A\u0435\u0442\",\r\n                \"\u043F\u0430\u043B\u044C\u0442\u043E\"\r\n             
+    ]\r\n            },\r\n            \"Clusters\": [\r\n              \"\u043A\u0430\u0448\",\r\n             
+    \"\u0442\u0430\u043D\",\r\n              \"\u0444\u0438\u043B\u044C\",\r\n             
+    \"\u0442\u0440\",\r\n              \"\u0431\u0430\u043D\",\r\n              \"\u043A\u0435\u0442\",\r\n             
+    \"\u043F\u0430\u043B\u044C\",\r\n              \"\u0442\u043E\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0432\u043E\u0440\u043E\u0442\u0430\",\r\n               
+    \"\u043C\u0438\u043C\u043E\u0437\u0430\",\r\n                \"\u0441\u0438\u043D\u0438\u0446\u0430\",\r\n               
+    \"\u043F\u0438\u0434\u0436\u0430\u043A\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0432\u043E\",\r\n              \"\u0440\u043E\u0442\u0430\",\r\n             
+    \"\u043C\u0438\u043C\",\r\n              \"\u043E\u0437\u0430\",\r\n             
+    \"\u0441\u0438\u043D\",\r\n              \"\u0438\u0446\u0430\",\r\n             
+    \"\u043F\u0438\",\r\n              \"\u0434\u0436\u0430\u043A\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0431\u0443\u043C\u0430\u0433\u0430\",\r\n               
+    \"\u0444\u043E\u043D\u0430\u0440\u044C\",\r\n                \"\u0440\u044E\u043A\u0437\u0430\u043A\",\r\n               
+    \"\u043C\u043E\u043D\u0435\u0442\u0430\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0431\u0443\",\r\n              \"\u043C\u0430\",\r\n             
+    \"\u0433\u0430\",\r\n              \"\u0444\u043E\",\r\n              \"\u043D\u0430\u0440\u044C\",\r\n             
+    \"\u0440\u044E\u043A\",\r\n              \"\u0437\u0430\u043A\",\r\n             
+    \"\u043C\u043E\u043D\",\r\n              \"\u0435\u0442\u0430\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0442\u0435\u043B\u0435\u0433\u0430\",\r\n               
+    \"\u043A\u043E\u0440\u043E\u043D\u0430\",\r\n                \"\u043F\u043B\u0430\u0442\u043E\u043A\",\r\n               
+    \"\u0444\u0438\u0430\u043B\u043A\u0430\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0442\u0435\",\r\n              \"\u043B\u0435\u0433\u0430\",\r\n             
+    \"\u043A\u043E\",\r\n              \"\u0440\u043E\u043D\u0430\",\r\n             
+    \"\u043F\u043B\u0430\",\r\n              \"\u0442\u043E\u043A\",\r\n             
+    \"\u0444\u0438\",\r\n              \"\u0430\u043B\u043A\u0430\"\r\n           
+    ]\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"256e18de-3130-4cfb-a77f-d0734c8b0d28\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"levels\",\r\n      \"type\": \"json\",\r\n     
+    \"schemaId\": null,\r\n      \"value\": {\r\n        \"Levels\": [\r\n         
+    {\r\n            \"Field\": {\r\n              \"Words\": [\r\n               
+    \"\u043A\u0430\u0448\u0442\u0430\u043D\",\r\n                \"\u0444\u0438\u043B\u044C\u0442\u0440\",\r\n               
+    \"\u0431\u0430\u043D\u043A\u0435\u0442\",\r\n                \"\u043F\u0430\u043B\u044C\u0442\u043E\"\r\n             
+    ]\r\n            },\r\n            \"Clusters\": [\r\n              \"\u043A\u0430\u0448\",\r\n             
+    \"\u0442\u0430\u043D\",\r\n              \"\u0444\u0438\u043B\u044C\",\r\n             
+    \"\u0442\u0440\",\r\n              \"\u0431\u0430\u043D\",\r\n              \"\u043A\u0435\u0442\",\r\n             
+    \"\u043F\u0430\u043B\u044C\",\r\n              \"\u0442\u043E\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0432\u043E\u0440\u043E\u0442\u0430\",\r\n               
+    \"\u043C\u0438\u043C\u043E\u0437\u0430\",\r\n                \"\u0441\u0438\u043D\u0438\u0446\u0430\",\r\n               
+    \"\u043F\u0438\u0434\u0436\u0430\u043A\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0432\u043E\",\r\n              \"\u0440\u043E\u0442\u0430\",\r\n             
+    \"\u043C\u0438\u043C\",\r\n              \"\u043E\u0437\u0430\",\r\n             
+    \"\u0441\u0438\u043D\",\r\n              \"\u0438\u0446\u0430\",\r\n             
+    \"\u043F\u0438\",\r\n              \"\u0434\u0436\u0430\u043A\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0431\u0443\u043C\u0430\u0433\u0430\",\r\n               
+    \"\u0444\u043E\u043D\u0430\u0440\u044C\",\r\n                \"\u0440\u044E\u043A\u0437\u0430\u043A\",\r\n               
+    \"\u043C\u043E\u043D\u0435\u0442\u0430\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0431\u0443\",\r\n              \"\u043C\u0430\",\r\n             
+    \"\u0433\u0430\",\r\n              \"\u0444\u043E\",\r\n              \"\u043D\u0430\u0440\u044C\",\r\n             
+    \"\u0440\u044E\u043A\",\r\n              \"\u0437\u0430\u043A\",\r\n             
+    \"\u043C\u043E\u043D\",\r\n              \"\u0435\u0442\u0430\"\r\n           
+    ]\r\n          },\r\n          {\r\n            \"Field\": {\r\n             
+    \"Words\": [\r\n                \"\u0442\u0435\u043B\u0435\u0433\u0430\",\r\n               
+    \"\u043A\u043E\u0440\u043E\u043D\u0430\",\r\n                \"\u043F\u043B\u0430\u0442\u043E\u043A\",\r\n               
+    \"\u0444\u0438\u0430\u043B\u043A\u0430\"\r\n              ]\r\n            },\r\n           
+    \"Clusters\": [\r\n              \"\u0442\u0435\",\r\n              \"\u043B\u0435\u0433\u0430\",\r\n             
+    \"\u043A\u043E\",\r\n              \"\u0440\u043E\u043D\u0430\",\r\n             
+    \"\u043F\u043B\u0430\",\r\n              \"\u0442\u043E\u043A\",\r\n             
+    \"\u0444\u0438\",\r\n              \"\u0430\u043B\u043A\u0430\"\r\n           
+    ]\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"bca66030-837b-49dd-9e9e-4236ab076882\",\r\n   
+    \"name\": \"production\",\r\n    \"id\": \"f93d4e63-c290-4138-b3b5-26bddbe74820\",\r\n   
+    \"isDefault\": true,\r\n    \"createdAt\": \"2025-04-07T12:03:44Z\",\r\n    \"updatedAt\":
+    \"2025-04-07T12:03:44Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"bca66030-837b-49dd-9e9e-4236ab076882\",\r\n   
+    \"name\": \"test\",\r\n    \"id\": \"62278906-d5b0-4f2e-8806-1c997329858d\",\r\n   
+    \"isDefault\": false,\r\n    \"createdAt\": \"2025-04-07T12:07:49Z\",\r\n   
+    \"updatedAt\": \"2025-04-07T12:07:49Z\"\r\n  }\r\n]"
