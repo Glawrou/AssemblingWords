@@ -35,7 +35,7 @@ namespace naa.AssemblingWords.Game
                 level = _levelStorage.GetLevel(_levelCount);
             }
 
-            _levelController.Init(level);
+            _levelController.Init(level.Field.Words, level.Clusters);
         }
 
         private void LevelCompliteHandler(string[] words)

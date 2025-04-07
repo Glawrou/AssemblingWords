@@ -1,4 +1,3 @@
-using naa.AssemblingWords.Data;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,18 +12,16 @@ namespace naa.AssemblingWords.Game
         [SerializeField] private ClusterList _clusterList;
         [SerializeField] private Button _checkValidButton;
 
-        private LevelData _levelData;
 
         private void Awake()
         {
             _checkValidButton.onClick.AddListener(ClickCheckValidHandler);
         }
 
-        public void Init(LevelData data)
+        public void Init(string[] words, string[] clusters)
         {
-            _levelData = data;
-            _field.Init(_levelData.Field);
-            _clusterList.Init(_levelData.Clusters);
+            _field.Init(words);
+            _clusterList.Init(clusters);
         }
 
         private void ClickCheckValidHandler()

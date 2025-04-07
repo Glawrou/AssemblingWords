@@ -1,4 +1,3 @@
-using naa.AssemblingWords.Data;
 using System.Linq;
 using UnityEngine;
 
@@ -9,12 +8,12 @@ namespace naa.AssemblingWords.Game
         [SerializeField] private Word _wordPrefab;
 
         private Word[] _words;
-        private FieldData _data;
+        private string[] _data;
 
-        public void Init(FieldData data)
+        public void Init(string[] data)
         {
             _data = data;
-            CreateWords(_data.Words.Length);
+            CreateWords(_data.Length);
         }
 
         private void ClearWords()
@@ -33,13 +32,7 @@ namespace naa.AssemblingWords.Game
             for (var i = 0; i < count; i++)
             {
                 _words[i] = Instantiate(_wordPrefab, transform);
-                _words[i].OnPutCluster += PutClusterHandler;
             }
-        }
-
-        public void PutClusterHandler()
-        {
-            Debug.Log(ÑheckValid());
         }
 
         public string[] GetWords()
@@ -50,7 +43,7 @@ namespace naa.AssemblingWords.Game
         public bool ÑheckValid()
         {
             var answerWord = GetWords();
-            var answerData = _data.Words;
+            var answerData = _data;
             return answerWord.All(w => answerData.Any(d => d.ToUpper() == w.ToUpper()));
         }
     }

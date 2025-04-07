@@ -1,15 +1,15 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace naa.AssemblingWords.Game
 {
     public class Letter : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _value;
+        [SerializeField] private Text _value;
 
         public void Set(char c)
         {
-            _value.text = c.ToString();
+            _value.text = c.ToString().ToUpper();
         }
     }
 }

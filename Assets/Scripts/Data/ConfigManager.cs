@@ -79,7 +79,6 @@ namespace naa.AssemblingWords.Data
             if (response.status == ConfigRequestStatus.Success)
             {
                 LevelsJson = RemoteConfigService.Instance.appConfig.GetJson(LevelsConfigKey);
-                Debug.Log("Successfully fetched remote config");
             }
             else
             {
