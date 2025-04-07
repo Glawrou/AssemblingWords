@@ -12,7 +12,7 @@ namespace naa.AssemblingWords.Game
 
         [SerializeField] private RectTransform _rectTransform;
 
-        private const float RectToWordFactor = 0.005f;
+        private const float RectToWordFactor = 0.008f;
 
         private Camera _camera;
         private Transform _center;
