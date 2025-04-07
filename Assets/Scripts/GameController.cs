@@ -1,9 +1,10 @@
 using naa.AssemblingWords.Data;
 using naa.AssemblingWords.Windows;
+using naa.AssemblingWords.Game;
 using UnityEngine;
 using Zenject;
 
-namespace naa.AssemblingWords.Game
+namespace naa.AssemblingWords
 {
     public class GameController : MonoBehaviour
     {   
